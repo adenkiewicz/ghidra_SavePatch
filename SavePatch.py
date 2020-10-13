@@ -49,7 +49,7 @@ def main():
         print("Memory offset 0x%08x corresponds to file offset 0x%08x"%(imagebase_offset,file_offset))
 
     monitor.setMessage("Waiting for user input")
-    orig_path   = str(currentProgram.getExecutablePath())
+    orig_path   = str(currentProgram.getExecutablePath())[1:]  # this [1:] shouldn't be needed per documentation
     output_path = str(askFile("Select output file name","Save changes"))
 
     if not os.path.isfile(output_path):
